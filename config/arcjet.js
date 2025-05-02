@@ -1,4 +1,5 @@
-import arcjet,{shield,detectBot,tokenBucket} from "arcjet";
+
+import arcjet,{shield,detectBot,tokenBucket} from "@arcjet/node";
 
 const aj = arcjet({
     key:ARCJET_KEY,
@@ -21,3 +22,5 @@ const aj = arcjet({
       }),
     ],
   });
+
+  export default aj;
