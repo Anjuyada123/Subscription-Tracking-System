@@ -9,9 +9,10 @@ const aj = arcjet({
 
       shield({ mode: "LIVE" }),
       detectBot({
-        mode: "LIVE",
+        mode: "DRY_RUN",
         allow: [
-          "CATEGORY:SEARCH_ENGINE", // Google, Bing, etc
+          "CATEGORY:SEARCH_ENGINE",
+           // Google, Bing, etc
         ],
       }),
 

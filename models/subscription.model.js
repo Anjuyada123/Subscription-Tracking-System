@@ -47,7 +47,7 @@ const subscriptionsSchema=new mongoose.Schema({
 
    renewalDate:{
     type:Date,
-    required:true,
+    required:false,
     validate:{
         validator:function(value){
             return value> this.startDate;
@@ -75,7 +75,7 @@ subscriptionsSchema.pre('save',function(next){
             yearly:365,
         };
         this.renewalDate=new Date(this.startDate);
-        this.renewalDate.startDate(this.renewalDate.getDate()+ renewalPeriods[this.frequency]);
+        this.renewalDate.setDate(this.renewalDate.getDate()+ renewalPeriods[this.frequency]);
      }
 
         if(this.renewalDate<new Date()){
@@ -85,4 +85,5 @@ subscriptionsSchema.pre('save',function(next){
 
 });
 
-
+const Subscription = mongoose.model('Subscription', subscriptionsSchema);
+export default Subscription;
